@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 
-function Home() {
+const Home = () => {
 
 
     return (

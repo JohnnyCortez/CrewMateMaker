@@ -5,6 +5,7 @@ import Gallery from '../pages/Gallery'
 import Home from '../pages/Home'
 import Create from '../pages/Create'
 import { Routes, Route } from 'react-router-dom'
+import UpdateCrewmate from "../pages/Update"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route index={true} exact path="/" element={<Home />} />
         <Route index={true} exact path="/create" element={<Create />} />
         <Route index={true} exact path="/gallery" element={<Gallery />} />
+        <Route index={true} exact path="/Update" element={<UpdateCrewmate />} />
     </Routes>
     </div>
   )
