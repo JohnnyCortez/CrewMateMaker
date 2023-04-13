@@ -26,7 +26,7 @@ Each crewmate has a direct, unique link to an info page about them - completed
 
 Here's a walkthrough of implemented features:
 
-<img src='Animation_Gif_ShibieSearchV2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Animation_Gif_CrewmateMaker.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ScreenToGif
 
