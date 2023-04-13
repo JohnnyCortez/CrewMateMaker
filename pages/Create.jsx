@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { supabase } from "../src/client";
 
 const Create = () => {
-    const [color, setColor] = useState("")
-    const [name, setName] = useState("")
-    const [speed, setSpeed] = useState()
-    const [description, setDescription] = useState("")
+  const [color, setColor] = useState("");
+  const [name, setName] = useState("");
+  const [speed, setSpeed] = useState();
+  const [description, setDescription] = useState("");
 
   const createPost = async () => {
     await supabase
@@ -17,47 +17,67 @@ const Create = () => {
         description: description,
       })
       .select();
-      window.location = "/";
+    window.location = "/";
   };
 
   function handleClick() {
-    createPost()}
+    createPost();
+  }
 
   return (
     <div>
-      Create new Crewmates
+      <h4> Create new Crewmate</h4>
       <br />
-        <label>Name:</label>
-        <input type="text" id="name" name="name" onChange= {(e) =>
-        setName(e.target.value)} />
+      <label>Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        onChange={(e) => setName(e.target.value)}
+      />
 
-        <label>Speed (mph):</label>
-        <input type="number" id="speed" name="speed" onChange= {(e) =>
-        setSpeed(e.target.value)}/>
+      <label>Speed (mph):</label>
+      <input
+        type="number"
+        id="speed"
+        name="speed"
+        onChange={(e) => setSpeed(e.target.value)}
+      />
 
-        <label>Description:</label>
-        <textarea id="description" name="description" onChange= {(e) =>
-        setDescription(e.target.value)}></textarea>
+      <label>Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        onChange={(e) => setDescription(e.target.value)}
+      ></textarea>
 
-        <label>Color:</label>
-        <select id="color" name="color" onChange= {(e) =>
-        setColor(e.target.value)}>
-          <option value="Red">Red</option>
-          <option value="Green">Green</option>
-          <option value="Blue">Blue</option>
-          <option value="Purple">Purple</option>
-          <option value="Yellow">Yellow</option>
-          <option value="Pink">Pink</option>
-          <option value="Orange">Orange</option>
-          <option value="Rainbow">Rainbow</option>
-          <option value="Black">Black</option>
-          <option value="White">White</option>
-          <option value="Gray">Gray</option>
-          <option value="Brown">Brown</option>
-          <option value="Teal">Teal</option>
-        </select>
-
-        <button onClick={handleClick}>Submit</button>
+      <label>Color:</label>
+      <select
+        id="color"
+        name="color"
+        onChange={(e) => setColor(e.target.value)}
+      >
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+        <option value="Purple">Purple</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Pink">Pink</option>
+        <option value="Orange">Orange</option>
+        <option value="Rainbow">Rainbow</option>
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+        <option value="Gray">Gray</option>
+        <option value="Brown">Brown</option>
+        <option value="Teal">Teal</option>
+      </select>
+      <button onClick={handleClick}>Submit</button>
+      <br />
+      <img
+        src="https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2020/09/character-creator-among-us.jpg"
+        height="200"
+        width="350"
+      />
     </div>
   );
 };

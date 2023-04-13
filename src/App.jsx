@@ -6,6 +6,7 @@ import Home from '../pages/Home'
 import Create from '../pages/Create'
 import { Routes, Route } from 'react-router-dom'
 import UpdateCrewmate from "../pages/Update"
+import Info from '../pages/Info'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route index={true} exact path="/create" element={<Create />} />
         <Route index={true} exact path="/gallery" element={<Gallery />} />
         <Route index={true} exact path="/update" element={<UpdateCrewmate />} />
+        <Route index={true} exact path="/info" element={<Info />} />
     </Routes>
     </div>
   )
