@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../src/client";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
     const [crewMates, setCrewMates] = useState([]);
@@ -19,14 +20,19 @@ const Gallery = () => {
     }
 
 
-  return (<div>gallery
+  return (<div>
     <br />
     <button onClick={handleClick}>Reveal your Crewmates</button>
     <div>
-        {crewMates.length > 0 ? (crewMates.map((e) => {
+        {crewMates.length > 0 ? (crewMates.map((crewmate) => {
         return (<div>
-           <h7>{e.name}</h7>
-           <p>update crewmate</p> 
+           <h2>{crewmate.name}</h2>
+           <h4>{`color: ${crewmate.color}`}</h4>
+           <h4>{`speed: ${crewmate.speed} mph`}</h4>
+           <h4>{`description: ${crewmate.description}`}</h4>
+           <Link to="/update" state={{crewmate}}>           
+            <p>update crewmate</p> 
+           </Link>
         </div>
         )
     })) : ""}

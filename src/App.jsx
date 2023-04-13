@@ -16,7 +16,7 @@ function App() {
         <Route index={true} exact path="/" element={<Home />} />
         <Route index={true} exact path="/create" element={<Create />} />
         <Route index={true} exact path="/gallery" element={<Gallery />} />
-        <Route index={true} exact path="/Update" element={<UpdateCrewmate />} />
+        <Route index={true} exact path="/update" element={<UpdateCrewmate />} />
     </Routes>
     </div>
   )
