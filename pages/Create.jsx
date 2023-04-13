@@ -2,46 +2,46 @@ import { useEffect, useState } from "react";
 import { supabase } from "../src/client";
 
 const Create = () => {
-  const [crewMate, setCrewMate] = useState({name:"", speed:0, description:"", color:""});
+    const [color, setColor] = useState("")
+    const [name, setName] = useState("")
+    const [speed, setSpeed] = useState()
+    const [description, setDescription] = useState("")
 
-  const createPost = async (event) => {
-    event.preventDefault();
+  const createPost = async () => {
     await supabase
       .from("CrewMates")
       .insert({
-        name: crewMate.name,
-        speed: crewMate.speed,
-        color: crewMate.color,
-        description: crewMate.description,
+        name: name,
+        speed: speed,
+        color: color,
+        description: description,
       })
       .select();
-    //   window.location = "/";
+      window.location = "/";
   };
 
-
- const handleSubmit = (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  setCrewMate({name: formData.get("name"), speed: formData.get("speed"), description: formData.get("description"), color: formData.get("color")})
-  console.log(crewMate.name)
-  createPost(event)
-};
+  function handleClick() {
+    createPost()}
 
   return (
     <div>
       Create new Crewmates
-      <form onSubmit={handleSubmit}>
+      <br />
         <label>Name:</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" onChange= {(e) =>
+        setName(e.target.value)} />
 
         <label>Speed (mph):</label>
-        <input type="number" id="speed" name="speed" required />
+        <input type="number" id="speed" name="speed" onChange= {(e) =>
+        setSpeed(e.target.value)}/>
 
         <label>Description:</label>
-        <textarea id="description" name="description" required></textarea>
+        <textarea id="description" name="description" onChange= {(e) =>
+        setDescription(e.target.value)}></textarea>
 
         <label>Color:</label>
-        <select id="color" name="color" required>
+        <select id="color" name="color" onChange= {(e) =>
+        setColor(e.target.value)}>
           <option value="Red">Red</option>
           <option value="Green">Green</option>
           <option value="Blue">Blue</option>
@@ -57,8 +57,7 @@ const Create = () => {
           <option value="Teal">Teal</option>
         </select>
 
-        <button type="submit">Submit</button>
-      </form>
+        <button onClick={handleClick}>Submit</button>
     </div>
   );
 };

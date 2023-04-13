@@ -29,9 +29,21 @@ const UpdateCrewmate = () => {
     window.location = "/gallery";
   };
 
+  const deletePost = async () => {
+    await supabase
+    .from('CrewMates')
+    .delete()
+    .eq('id', crewmate.id);
+    window.location = "/gallery";
+
+    }
+
+
   function handleClick() {
     updatePost()}
-
+    
+    function handleDelete() {
+        deletePost()}
 
   return (
     <div>
@@ -68,6 +80,7 @@ const UpdateCrewmate = () => {
             <option value="Teal">Teal</option>
           </select>
           <button onClick={handleClick}>Edit</button>
+          <button onClick={handleDelete}>Eject</button>
       </div>
     </div>
   );
